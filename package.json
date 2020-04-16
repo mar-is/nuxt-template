@@ -5,19 +5,20 @@
   "author": "skilledd",
   "private": true,
   "scripts": {
-    "dev": "nuxt",
+    "dev": "cross-env NODE_ENV=development nuxt",
     "build": "nuxt build",
     "start": "nuxt start",
     "generate": "cross-env NODE_ENV=production nuxt generate",
     "lint": "eslint --ext .js,.vue --ignore-path .gitignore .",
+    "lint:prettier": "prettier --write --loglevel warn",
     "test": "jest"
   },
   "lint-staged": {
-    "*.{js,vue}": "yarn lint"
+    "*.{js,vue}": "yarn lint:prettier && yarn lint"
   },
   "husky": {
     "hooks": {
-      "pre-commit": "lint-staged"
+      "pre-commit": "lint-staged -r"
     }
   },
   "dependencies": {
