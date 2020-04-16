@@ -17,10 +17,9 @@ module.exports = {
   plugins: ['prettier'],
   // add your custom rules here
   rules: {
-    'no-debugger': process.env.NODE_ENV == 'development' ? 'error' : 'off',
-    'no-console':
-      process.env.NODE_ENV == 'development'
-        ? ['error', { allow: ['warn', 'error', 'log'] }]
-        : 'off'
+    'no-debugger': process.env.PRE_COMMIT ? 'error' : 'off',
+    'no-console': process.env.PRE_COMMIT
+      ? ['error', { allow: ['warn', 'error', 'log'] }]
+      : 'off'
   }
 }
