@@ -32,7 +32,7 @@ export default {
     Logo
   },
 
-  created() {
+  mounted() {
     console.log('console.log')
   }
 }
